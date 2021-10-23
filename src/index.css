@@ -1,5 +1,7 @@
 @import url(./vendor/normalize.css);
 
+@import url(./fonts/inter.css);
+
 @import url(./blocks/page/page.css);
 
 @import url(./blocks/header/header.css);
@@ -49,3 +51,18 @@
 @import url(./blocks/popup/__photo-container/popup__photo-container.css);
 @import url(./blocks/popup/__text-see-photo/popup__text-see-photo.css);
 @import url(./blocks/popup/__avatar-container/popup__avatar-container.css);
+@import url(./blocks/popup/__logined/popup__logined.css);
+@import url(./blocks/popup/__text-logined/popup__text-logined.css);
+
+@import url(./blocks/auth/auth.css);
+@import url(./blocks/auth/__header/auth__header.css);
+@import url(./blocks/auth/__link/auth__link.css);
+
+@import url(./blocks/auth-form/__element/auth-form__element.css);
+@import url(./blocks/auth-form/__input/auth-form__input.css);
+@import url(./blocks/auth-form/__submit/auth-form__submit.css);
+
+@import url(./blocks/menu/menu.css);
+@import url(./blocks/menu/__link/menu__link.css);
+@import url(./blocks/menu/__link/_active/menu__link_active.css);
+

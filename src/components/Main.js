@@ -1,11 +1,18 @@
 import React from 'react';
 import Card from './Card';
+import Header from './Header';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import { NavLink } from 'react-router-dom';
 
 function Main(props) {
 
     const userData = React.useContext(CurrentUserContext);
     return (
+        <>
+        <Header>
+            <NavLink exact to="/" activeClassName="menu__link_active" className="menu__link">{props.userMail.email}</NavLink>
+            <NavLink onClick={props.singOut} to="/sign-in" className="menu__link">Выйти</NavLink>
+        </Header>
         <main className="content">
             <section className="profile">
             <div className="profile__container">
@@ -42,6 +49,7 @@ function Main(props) {
             </ul>
             </section>
         </main>
+        </>
     );
 }
 export default Main;
