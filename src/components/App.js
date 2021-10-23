@@ -12,7 +12,7 @@ import RemoveCardPopup from './RemoveCardPopup';
 import ImagePopup from './ImagePopup';
 import apiMesto from '../utils/api';
 import ProtectedRoute from './ProtectedRoute';
-import * as Auth from './Auth.js';
+import * as Auth from '../utils/Auth.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import InfoTooltip from './InfoTooltip';
 
@@ -59,37 +59,25 @@ function App() {
   }
 
   function closeAllPopups() {
-    if(isEditProfilePopupOpen){
-      setIsEditProfilePopupOpen(false);
-    }
-    if(isEditAvatarPopupOpen){
-      setIsEditAvatarPopupOpen(false);
-    }
-    if(isAddPlacePopupOpen){
-      setIsAddPlacePopupOpen(false);
-    }
-    if(isInfoTooltipOpen){
-      setIsInfoTooltipOpen(false);
-    }
-    if(deleteCard){
-      setDeleteCard(null);
-    }
-    if(selectedCard.link){
-      setSelectedCard({name: '', link: ''});
-    }
+    setIsEditProfilePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+    setIsInfoTooltipOpen(false);
+    setDeleteCard(null);
+    setSelectedCard({name: '', link: ''});
   }
 
-  // React.useEffect(() => {
-  //   const closeByEscape = (e) => {
-  //     if (e.key === 'Escape') {
-  //       closeAllPopups();
-  //     }
-  //   }
+  React.useEffect(() => {
+    const closeByEscape = (e) => {
+      if (e.key === 'Escape') {
+        closeAllPopups();
+      }
+    }
 
-  //   document.addEventListener('keydown', closeByEscape)
+    document.addEventListener('keydown', closeByEscape)
     
-  //   return () => document.removeEventListener('keydown', closeByEscape)
-  // }, [closeAllPopups])
+    return () => document.removeEventListener('keydown', closeByEscape)
+  }, [])
 
   function handleUpdateUser(newDataUser) {
     setIsSaving(true)
@@ -219,7 +207,7 @@ function App() {
   }, [])
 
   function tokenCheck () {
-    let jwt = localStorage.getItem('jwt')
+    const jwt = localStorage.getItem('jwt')
     if (localStorage.getItem('jwt')) {
       Auth.getContent(jwt)
       .then((res) => {
@@ -230,6 +218,11 @@ function App() {
           })
           setLoggedIn(true)
         }
+      })
+      .catch((err) => {
+        setIsInfoTooltipOpen(true)
+        setIsInfoRegister(false)
+        console.log(err)
       })
     }
   }
