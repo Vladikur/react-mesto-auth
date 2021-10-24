@@ -239,20 +239,6 @@ function App() {
       <CurrentUserContext.Provider value={currentUser}>
 
         <Switch>
-          <ProtectedRoute
-            exact path='/'
-            loggedIn={loggedIn}
-            initialCards={cards}
-            onCardLike={handleCardLike}
-            onCardDelete={setDeleteCard}
-            сardClick={handleCardClick}
-            onEditProfile={handleEditProfileClick}
-            onAddPlace={handleAddPlaceClick}
-            onEditAvatar={handleEditAvatarClick}
-            singOut={handleSingOut}
-            userMail={userData}
-            component={Main}
-          />
 
           <Route path='/sign-in'>
             <Header>
@@ -267,6 +253,21 @@ function App() {
             </Header>
             <Register onRegister={handleRegister} />
           </Route>
+
+          <ProtectedRoute
+            path='/'
+            loggedIn={loggedIn}
+            initialCards={cards}
+            onCardLike={handleCardLike}
+            onCardDelete={setDeleteCard}
+            сardClick={handleCardClick}
+            onEditProfile={handleEditProfileClick}
+            onAddPlace={handleAddPlaceClick}
+            onEditAvatar={handleEditAvatarClick}
+            singOut={handleSingOut}
+            userMail={userData}
+            component={Main}
+          />
 
         </Switch>
 
