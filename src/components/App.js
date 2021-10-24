@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Switch, NavLink, useHistory } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, NavLink, useHistory } from 'react-router-dom';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
@@ -237,7 +237,7 @@ function App() {
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
-
+        <Router>
         <Switch>
           <ProtectedRoute
             exact path='/'
@@ -269,6 +269,7 @@ function App() {
           </Route>
 
         </Switch>
+        </Router>
 
         <Footer />
 
