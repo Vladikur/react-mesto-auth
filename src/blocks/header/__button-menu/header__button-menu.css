@@ -1,0 +1,24 @@
+.header__button-menu {
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.1s linear 0.1s;
+  background: url(../../../images/menu-open.svg) center no-repeat;
+  margin: 0;
+  margin-right: 30px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  display: none;
+  transition: opacity 0.1s linear 0.1s;
+}
+
+.header__button-menu:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 550px) {
+  .header__button-menu {
+    display: block;
+  }
+}

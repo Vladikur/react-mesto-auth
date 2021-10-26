@@ -18,3 +18,19 @@
   cursor: pointer;
   opacity: 1;
 }
+
+@media screen and (max-width: 907px) {
+  .menu__link {
+    margin-left: 0px;
+    margin-right: 27px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .menu__link {
+    margin-right: 0;
+  }
+  .menu__link:nth-of-type(2) {
+    margin-top: 18px;
+  }
+}

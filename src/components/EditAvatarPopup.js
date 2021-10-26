@@ -23,10 +23,14 @@ function EditAvatarPopup(props) {
       setValidationAvatar(e.target.validationMessage)
     }
 
+    const inputClassName = (
+      `popup__input popup__input_change_avatar ${validationAvatar ? 'popup__input_error_active' : ''}`
+    ); 
+
     return (
         <PopupWithForm onSubmit={handleSubmit} buttonText={`${props.saving ? 'Сохранение...' : 'Сохранить'}`} title="Обновить аватар" name="add-avatar" isOpen={props.isOpen} closePopup={props.closePopup} >
           <section className="popup__input-element">
-            <input value={avatar || ''} onChange={handleChangeAvatar} id="avatar-url" type="url" placeholder="Ссылка на картинку" name="avatar" className="popup__input popup__input_change_avatar" required />
+            <input value={avatar || ''} onChange={handleChangeAvatar} id="avatar-url" type="url" placeholder="Ссылка на картинку" name="avatar" className={inputClassName} required />
             <span className="popup__input-error" id="avatar-url-error">{validationAvatar}</span>
           </section>
         </PopupWithForm>

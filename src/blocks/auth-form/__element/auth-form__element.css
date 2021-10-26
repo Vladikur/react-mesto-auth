@@ -1,5 +1,6 @@
 .auth-form__element {
     margin-top: 20px;
+    position: relative;
 }
 .auth-form__element:first-of-type {
     margin-top: 40px;

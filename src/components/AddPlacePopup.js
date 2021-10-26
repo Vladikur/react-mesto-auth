@@ -28,14 +28,22 @@ function AddPlacePopup(props) {
         setCardLink('')
     }
 
+    const inputNameClassName = (
+        `popup__input popup__input_change_name-card ${validationName ? 'popup__input_error_active' : ''}`
+    );
+
+    const inputLinkClassName = (
+        `popup__input popup__input_change_src ${validationLink ? 'popup__input_error_active' : ''}`
+    ); 
+
     return (
         <PopupWithForm onSubmit={handleSubmit} buttonText={`${props.saving ? 'Создание...' : 'Создать'}`} title="Новое место" name="add-card" isOpen={props.isOpen} closePopup={props.closePopup} >
             <section className="popup__input-element">
-                <input value={cardName || ''} onChange={handleChangeName} id="sing-in-place" type="text" placeholder="Название" name="place" className="popup__input popup__input_change_name-card" required minLength="2" maxLength="30" />
+                <input value={cardName || ''} onChange={handleChangeName} id="sing-in-place" type="text" placeholder="Название" name="place" className={inputNameClassName} required minLength="2" maxLength="30" />
                 <span className="popup__input-error" id="sing-in-place-error">{validationName}</span>
             </section>
             <section className="popup__input-element">
-               <input value={cardLink || ''} onChange={handleChangeLink} id="sing-in-url" type="url" placeholder="Ссылка на картинку" name="url" className="popup__input popup__input_change_src" required />
+               <input value={cardLink || ''} onChange={handleChangeLink} id="sing-in-url" type="url" placeholder="Ссылка на картинку" name="url" className={inputLinkClassName} required />
               <span className="popup__input-error" id="sing-in-url-error">{validationLink}</span>
             </section>
         </PopupWithForm>

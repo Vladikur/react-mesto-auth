@@ -1,0 +1,28 @@
+.header__button-menu-close {
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.1s linear 0.1s;
+  background: url(../../../images/menu-close.svg) center no-repeat;
+  margin: 0;
+  margin-right: 30px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  display: none;
+  transition: opacity 0.1s linear 0.1s;
+}
+
+.header__button-menu-close:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.header__button-menu-close_active {
+  display: block;
+}
+
+@media screen and (min-width: 550px) {
+  .header__button-menu-close {
+    display: none;
+  }
+}

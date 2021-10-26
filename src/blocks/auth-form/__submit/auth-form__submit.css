@@ -21,3 +21,11 @@
     cursor: pointer;
     opacity: 0.8;
 }
+
+@media screen and (max-width: 550px) {
+    .auth-form__submit {
+      height: 46px;
+      width: 260px;
+      margin-top: 173px;
+    }
+  }
